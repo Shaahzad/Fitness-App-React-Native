@@ -4,9 +4,11 @@ import { StatusBar } from 'expo-status-bar'
 import { LinearGradient } from 'expo-linear-gradient'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
 import Animated, { FadeIn, FadeInDown, FadeOut } from 'react-native-reanimated';
+import { useNavigation } from '@react-navigation/native'
 
 
 export default function Welcomescreen() {
+  const navigate = useNavigation()
   return (
     <View className="flex-1 flex justify-end">
         <StatusBar style="light"/>  
@@ -18,7 +20,7 @@ export default function Welcomescreen() {
         end={{x:0.5, y:0.8}}
         className='flex justify-end pb-12 space-y-8'
         >
-        <Animated.View entering={FadeInDown} className='flex items-center'>
+        <Animated.View entering={FadeInDown.delay(100).springify()} className='flex items-center'>
           <Text style={{fontSize: hp(5)}} className='text-white font-bold tracking-wide'>Best
             <Text className='text-rose-500'> Workout</Text>
           </Text>
@@ -27,18 +29,18 @@ export default function Welcomescreen() {
           </Text>
         </Animated.View>
 
-        <View>
+        <Animated.View entering={FadeInDown.delay(200).springify()}>
           <TouchableOpacity
+          onPress={() => navigate.navigate('Home')}
           style={{width: wp(80), height: hp(7)}}
           className='flex justify-center items-center bg-rose-500 rounded-full mx-auto
-          border-[2px] border-neutral-200
-          '>
+          border-[2px] border-neutral-200'>
             <Text style={{fontSize: hp(3)}} className='text-white font-bold tracking-widest'>
               Get Started
             </Text>
           </TouchableOpacity>
-        </View>
+        </Animated.View>
 </LinearGradient>
-    </View>
+</View>
   )
 }
