@@ -4,11 +4,12 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import { StatusBar } from 'expo-status-bar'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ImageSlider from '../Components/ImageSlider';
+import Bodyparts from '../Components/Bodyparts';
 
 
 export default function Home() {
   return (
-    <SafeAreaView className='flex-1 bg-white flex space-y-14' edges={['top']}> 
+    <SafeAreaView className='flex-1 bg-white flex space-y-10' edges={['top']}> 
         <StatusBar style="dark" />
 
         {/* punchline And Avatar */}
@@ -36,7 +37,15 @@ export default function Home() {
             </View>
         </View>
         {/* Image slider */}
+        <View >
         <ImageSlider/>
+        </View>
+        {/* Bodyparts */}
+
+        <View className='flex-1'>
+       <Bodyparts/>
+        </View>
+
     </SafeAreaView>
   )
 }
