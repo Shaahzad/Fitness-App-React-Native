@@ -15,7 +15,7 @@ export default function Exercises() {
   
 
   useEffect(()=>{
-  //  if(item) getExercises(item.name)
+   if(item) getExercises(item.name)
   },[item])
 
 

@@ -1,6 +1,8 @@
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, Image } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import { TouchableOpacity } from 'react-native'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 
 export default function Exerciseslist({Data}) {
     const navigation = useNavigation()
@@ -21,6 +23,21 @@ export default function Exerciseslist({Data}) {
 
 const ExerciseCard = ({item, index, navigation}) => {
     return(
-        <Text>Exercise Card</Text>
+      <View>
+        <TouchableOpacity className='flex py-3 space-y-2'>
+          <View className='bg-neutral-200 shadow rounded-[25px] overflow-hidden'>
+            <Image 
+            source={{uri: item.gifUrl}}
+            contentFit='cover'
+            style={{width:wp(44), height:wp(52)}}
+            />
+          </View>
+          <Text style={{fontSize: hp(1.7)}} className='text-neutral-700 font-semibold tracking-wide ml-1'>
+            {
+              item.name?.length>20? item.name.slice(0,20)+'...': item.name
+            }
+          </Text>
+        </TouchableOpacity>
+      </View>
     )
 }
