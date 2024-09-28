@@ -12,6 +12,7 @@
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/native-stack": "^6.11.0",
     "axios": "^1.7.7",
+    "expo-image": "^1.13.0",
     "expo-linear-gradient": "^13.0.2",
     "expo-router": "^3.5.23",
     "nativewind": "^2.0.11",
@@ -21,8 +22,7 @@
     "react-native-reanimated-carousel": "^3.5.1",
     "react-native-responsive-screen": "^1.4.2",
     "react-native-vector-icons": "^10.2.0",
-    "react-native-virtualized-view": "^1.0.0",
-    "expo-image": "~1.13.0"
+    "react-native-virtualized-view": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

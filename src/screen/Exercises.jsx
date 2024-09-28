@@ -8,7 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Exerciseslist from '../Components/Exerciseslist'
 import { ScrollView } from 'react-native-virtualized-view'
 export default function Exercises() {
-  const [exercises, setExercises] = useState(DummyData)
+  const [exercises, setExercises] = useState([])
   const navigation = useNavigation()
   const route = useRoute()
   const item = route.params
