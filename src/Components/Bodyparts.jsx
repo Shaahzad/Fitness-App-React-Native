@@ -5,6 +5,7 @@ import { BodyParts } from '../constant'
 import { TouchableOpacity } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useNavigation } from '@react-navigation/native'
+import Animated,{ FadeInDown} from 'react-native-reanimated'
 
 export default function Bodyparts() {
     const navigation = useNavigation()
@@ -29,12 +30,11 @@ export default function Bodyparts() {
 
 const BodyPartCard = ({item, index, navigation}) => {
    return(
-    <View>
+    <Animated.View entering={FadeInDown.duration(400).delay(index*200).springify().damping(3)}>
         <TouchableOpacity
         onPress={()=> navigation.navigate('Exercises', item)}
         style={{width: wp(44), height: wp(52)}}
-        className='flex justify-end p-4 mb-4'
-        >
+        className='flex justify-end p-4 mb-4'>
             <Image
             source={item.image}
             resizeMode='cover'
@@ -52,6 +52,6 @@ const BodyPartCard = ({item, index, navigation}) => {
             style={{fontSize:hp(2.3)}}
             >{item.name}</Text>
         </TouchableOpacity>
-    </View>
+    </Animated.View>
    )
 }

@@ -41,6 +41,7 @@ export default function Welcomescreen() {
           </TouchableOpacity>
         </Animated.View>
 </LinearGradient>
+<StatusBar style="light"/>
 </View>
   )
 }

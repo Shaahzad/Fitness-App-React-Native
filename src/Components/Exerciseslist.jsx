@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import { TouchableOpacity } from 'react-native'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import {Image} from 'expo-image'
+import Animated,{ FadeInDown} from 'react-native-reanimated'
 
 export default function Exerciseslist({Data}) {
     const navigation = useNavigation()
@@ -24,7 +25,7 @@ export default function Exerciseslist({Data}) {
 
 const ExerciseCard = ({item, index, navigation}) => {
     return(
-      <View>
+      <Animated.View entering={FadeInDown.duration(400).delay(index*200).springify().damping(3)}>
         <TouchableOpacity 
         onPress={()=> navigation.navigate('ExercisesDeatil', item)}
         className='flex py-3 space-y-2'>
@@ -41,6 +42,6 @@ const ExerciseCard = ({item, index, navigation}) => {
             }
           </Text>
         </TouchableOpacity>
-      </View>
+      </Animated.View>
     )
 }
